@@ -1,0 +1,111 @@
+version: '3.1'
+
+service:
+
+    symfony:
+       image: 
+       ports:
+         - "9000":"9000"
+       networks:
+         - test-network
+       depends_on:
+         - postgres
+         - rabbitmq
+       volumes:
+         - ../:/app
+       working_dir: /app
+       deploy:
+         replicas: 1
+         restart_policy:
+           condition: on_failure
+         placement:
+           constraints: [node.role == manager]
+
+    nginx:
+      image: nginx:1.15.5
+      networks:
+        - test-network
+      working_dir: /app
+      ports:
+        - '80:80'
+      depends_on:
+        - symfony
+      volumes:
+        - /app:/app
+        - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      deploy:
+        replicas: 1
+        restart_policy:
+          condition: on-failure
+        placement:
+          constraints: [node.role == manager]
+
+    postgres:
+      image: postgres:11
+      ports:
+        - '5432:5432'
+      working_dir: /app
+      networks:
+        - test-network
+      secrets:
+        - postgres_db
+        - postgres_user
+        - postgres_pass
+      environment:
+        POSTGRES_DB_FILE: /run/secrets/postgres_db
+        POSTGRES_USER_FILE: /run/secrets/postgres_user
+        POSTGRES_PASSWORD_FILE: /run/secrets/postgres_pass
+      volumes:
+        - ./data/dump:/app/dump
+        - ./data/postgresql:/var/lib/postgresql/data
+      deploy:
+        replicas: 1
+        restart_policy:
+          condition: on-failure
+        placement:
+          constraints: [node.role == manager]
+
+    rabbitmq:
+      image: rabbitmq:3.7.8-management
+      networks:
+        - test-network
+      working_dir: /app
+      hostname: my-test-sf4-app-rabbit-mq
+      volumes:
+        - /app:/app
+      ports:
+        - '5672:5672'
+        - '15672:15672'
+      secrets:
+        - rabbitmq_default_user
+        - rabbitmq_default_pass
+        - rabbitmq_default_vhost
+      environment:
+        RABBITMQ_DEFAULT_USER_FILE: /run/secrets/rabbitmq_default_user
+        RABBITMQ_DEFAULT_PASS_FILE: /run/secrets/rabbitmq_default_pass
+        RABBITMQ_DEFAULT_VHOST_FILE: /run/secrets/rabbitmq_default_vhost
+      deploy:
+        replicas: 1
+        restart_policy:
+          condition: on-failure
+        placement:
+          constraints: [node.role == manager]
+volumes:
+  postgresql:
+
+networks:
+  test-network:
+
+secrets:
+  rabbitmq_default_user:
+    file: ./secrets/rabbitmq_default_user
+  rabbitmq_default_pass:
+    file: ./secrets/rabbitmq_default_pass
+  rabbitmq_default_vhost:
+    file: ./secrets/rabbitmq_default_vhost
+  postgres_db:
+    file: ./secrets/postgres_db
+  postgres_user:
+    file: ./secrets/postgres_user
+  postgres_pass:
+    file: ./secrets/postgres_pass
