@@ -4,6 +4,7 @@
 /app/public/bundles/
 /app/var/
 /app/vendor/
+/data
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
