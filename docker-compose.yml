@@ -25,7 +25,8 @@ services:
       ports:
         - "5432:5432"
       working_dir: /app
-      environment: 
+      environment:
+        POSTGRES_DB: test
         POSTGRES_USER: test
         POSTGRES_PASSWORD: ktkbn40k
       volumes:
@@ -34,7 +35,7 @@ services:
       container_name: 'postgresql'
 
     rabbitmq:
-      image: rabbitmq:3.7.5-management
+      image: rabbitmq:3.7.5
       working_dir: /app
       hostname: rabbit-mq
       ports:

@@ -2,8 +2,10 @@
 ###> symfony/framework-bundle ###
 /app/.env
 /app/public/bundles/
-/app/var/
-/app/vendor/
+/app/var
+/app/vendor
+/app/receive.php
+/app/send.php
 /data
 ###< symfony/framework-bundle ###
 
