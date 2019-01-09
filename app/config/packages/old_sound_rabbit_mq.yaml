@@ -1,0 +1,26 @@
+parameters:
+    rabbitmq_host: '172.19.0.1'
+    rabbitmq_user: 'user'
+    rabbitmq_password: 'password'
+    rabbitmq_statuslayer_vhost: 'my_vhost'
+
+old_sound_rabbit_mq:
+    connections:
+        default:
+            host: '%rabbitmq_host%'
+            port:  5672
+            user: '%rabbitmq_user%'
+            password: '%rabbitmq_password%'
+            vhost: '%rabbitmq_statuslayer_vhost%'
+    producers:
+        number:
+            connection: default
+            exchange_options:
+                name: numbers
+                type: direct
+    consumers:
+        number:
+            connection:       default
+            exchange_options: {name: 'numbers', type: direct}
+            queue_options:    {name: 'numbers'}
+            callback:         number_service

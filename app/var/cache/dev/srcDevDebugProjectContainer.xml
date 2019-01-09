@@ -22,6 +22,9 @@
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="MakerBundle">Symfony\Bundle\MakerBundle\MakerBundle</parameter>
       <parameter key="WebServerBundle">Symfony\Bundle\WebServerBundle\WebServerBundle</parameter>
+      <parameter key="EasyAdminBundle">EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle</parameter>
+      <parameter key="DoctrineFixturesBundle">Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle</parameter>
+      <parameter key="OldSoundRabbitMqBundle">OldSound\RabbitMqBundle\OldSoundRabbitMqBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -76,12 +79,28 @@
         <parameter key="path">/var/www/app/vendor/symfony/web-server-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\WebServerBundle</parameter>
       </parameter>
+      <parameter key="EasyAdminBundle" type="collection">
+        <parameter key="path">/var/www/app/vendor/easycorp/easyadmin-bundle/src</parameter>
+        <parameter key="namespace">EasyCorp\Bundle\EasyAdminBundle</parameter>
+      </parameter>
+      <parameter key="DoctrineFixturesBundle" type="collection">
+        <parameter key="path">/var/www/app/vendor/doctrine/doctrine-fixtures-bundle</parameter>
+        <parameter key="namespace">Doctrine\Bundle\FixturesBundle</parameter>
+      </parameter>
+      <parameter key="OldSoundRabbitMqBundle" type="collection">
+        <parameter key="path">/var/www/app/vendor/php-amqplib/rabbitmq-bundle</parameter>
+        <parameter key="namespace">OldSound\RabbitMqBundle</parameter>
+      </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">srcDevDebugProjectContainer</parameter>
     <parameter key="container.autowiring.strict_mode">true</parameter>
     <parameter key="container.dumper.inline_class_loader">true</parameter>
     <parameter key="env(DATABASE_URL)"></parameter>
+    <parameter key="rabbitmq_host">172.19.0.1</parameter>
+    <parameter key="rabbitmq_user">user</parameter>
+    <parameter key="rabbitmq_password">password</parameter>
+    <parameter key="rabbitmq_statuslayer_vhost">my_vhost</parameter>
     <parameter key="locale">en</parameter>
     <parameter key="fragment.renderer.hinclude.global_template"></parameter>
     <parameter key="fragment.path">/_fragment</parameter>
@@ -284,6 +303,71 @@
       </parameter>
     </parameter>
     <parameter key="env(VAR_DUMPER_SERVER)">127.0.0.1:9912</parameter>
+    <parameter key="easyadmin.config" type="collection">
+      <parameter key="entities" type="collection">
+        <parameter key="User" type="collection">
+          <parameter key="class">App\Entity\User</parameter>
+          <parameter key="name">User</parameter>
+        </parameter>
+      </parameter>
+      <parameter key="site_name">EasyAdmin</parameter>
+      <parameter key="formats" type="collection">
+        <parameter key="date">Y-m-d</parameter>
+        <parameter key="time">H:i:s</parameter>
+        <parameter key="datetime">F j, Y H:i</parameter>
+        <parameter key="dateinterval">%y Year(s) %m Month(s) %d Day(s)</parameter>
+      </parameter>
+      <parameter key="disabled_actions" type="collection"/>
+      <parameter key="translation_domain">messages</parameter>
+      <parameter key="design" type="collection">
+        <parameter key="brand_color">hsl(230, 55%, 60%)</parameter>
+        <parameter key="form_theme" type="collection">
+          <parameter>@EasyAdmin/form/bootstrap_4.html.twig</parameter>
+        </parameter>
+        <parameter key="assets" type="collection">
+          <parameter key="css" type="collection"/>
+          <parameter key="js" type="collection"/>
+          <parameter key="favicon" type="collection">
+            <parameter key="path">favicon.ico</parameter>
+            <parameter key="mime_type">image/x-icon</parameter>
+          </parameter>
+        </parameter>
+        <parameter key="menu" type="collection"/>
+      </parameter>
+      <parameter key="list" type="collection">
+        <parameter key="actions" type="collection"/>
+        <parameter key="max_results">15</parameter>
+      </parameter>
+      <parameter key="search" type="collection"/>
+      <parameter key="edit" type="collection">
+        <parameter key="actions" type="collection"/>
+      </parameter>
+      <parameter key="new" type="collection">
+        <parameter key="actions" type="collection"/>
+      </parameter>
+      <parameter key="show" type="collection">
+        <parameter key="actions" type="collection"/>
+        <parameter key="max_results">10</parameter>
+      </parameter>
+    </parameter>
+    <parameter key="old_sound_rabbit_mq.connection.class">PhpAmqpLib\Connection\AMQPConnection</parameter>
+    <parameter key="old_sound_rabbit_mq.socket_connection.class">PhpAmqpLib\Connection\AMQPSocketConnection</parameter>
+    <parameter key="old_sound_rabbit_mq.lazy.connection.class">PhpAmqpLib\Connection\AMQPLazyConnection</parameter>
+    <parameter key="old_sound_rabbit_mq.lazy.socket_connection.class">PhpAmqpLib\Connection\AMQPLazySocketConnection</parameter>
+    <parameter key="old_sound_rabbit_mq.connection_factory.class">OldSound\RabbitMqBundle\RabbitMq\AMQPConnectionFactory</parameter>
+    <parameter key="old_sound_rabbit_mq.binding.class">OldSound\RabbitMqBundle\RabbitMq\Binding</parameter>
+    <parameter key="old_sound_rabbit_mq.producer.class">OldSound\RabbitMqBundle\RabbitMq\Producer</parameter>
+    <parameter key="old_sound_rabbit_mq.consumer.class">OldSound\RabbitMqBundle\RabbitMq\Consumer</parameter>
+    <parameter key="old_sound_rabbit_mq.multi_consumer.class">OldSound\RabbitMqBundle\RabbitMq\MultipleConsumer</parameter>
+    <parameter key="old_sound_rabbit_mq.dynamic_consumer.class">OldSound\RabbitMqBundle\RabbitMq\DynamicConsumer</parameter>
+    <parameter key="old_sound_rabbit_mq.batch_consumer.class">OldSound\RabbitMqBundle\RabbitMq\BatchConsumer</parameter>
+    <parameter key="old_sound_rabbit_mq.anon_consumer.class">OldSound\RabbitMqBundle\RabbitMq\AnonConsumer</parameter>
+    <parameter key="old_sound_rabbit_mq.rpc_client.class">OldSound\RabbitMqBundle\RabbitMq\RpcClient</parameter>
+    <parameter key="old_sound_rabbit_mq.rpc_server.class">OldSound\RabbitMqBundle\RabbitMq\RpcServer</parameter>
+    <parameter key="old_sound_rabbit_mq.logged.channel.class">OldSound\RabbitMqBundle\RabbitMq\AMQPLoggedChannel</parameter>
+    <parameter key="old_sound_rabbit_mq.data_collector.class">OldSound\RabbitMqBundle\DataCollector\MessageDataCollector</parameter>
+    <parameter key="old_sound_rabbit_mq.parts_holder.class">OldSound\RabbitMqBundle\RabbitMq\AmqpPartsHolder</parameter>
+    <parameter key="old_sound_rabbit_mq.fallback.class">OldSound\RabbitMqBundle\RabbitMq\Fallback</parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
         <parameter>request</parameter>
@@ -353,10 +437,18 @@
         <parameter>dump</parameter>
         <parameter>@Debug/Profiler/dump.html.twig</parameter>
       </parameter>
+      <parameter key="easyadmin.data_collector" type="collection">
+        <parameter>easyadmin</parameter>
+        <parameter>@EasyAdmin/data_collector/easyadmin.html.twig</parameter>
+      </parameter>
       <parameter key="data_collector.config" type="collection">
         <parameter>config</parameter>
         <parameter>@WebProfiler/Collector/config.html.twig</parameter>
       </parameter>
+    </parameter>
+    <parameter key="old_sound_rabbit_mq.base_amqp" type="collection">
+      <parameter>old_sound_rabbit_mq.number_producer</parameter>
+      <parameter>old_sound_rabbit_mq.number_consumer</parameter>
     </parameter>
     <parameter key="console.command.ids" type="collection">
       <parameter>console.command.public_alias.doctrine_cache.contains_command</parameter>
@@ -376,6 +468,54 @@
     <service id="service_container" class="Symfony\Component\DependencyInjection\ContainerInterface" public="true" synthetic="true"/>
     <service id="EasyCorp\EasyLog\EasyLogHandler" class="EasyCorp\EasyLog\EasyLogHandler" public="false">
       <argument>/var/www/app/var/log/dev.log</argument>
+    </service>
+    <service id="App\Controller\DefaultController" class="App\Controller\DefaultController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.ychIlgF.App\Controller\DefaultController"/>
+      </call>
+    </service>
+    <service id="App\Controller\FactorialResultController" class="App\Controller\FactorialResultController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.ychIlgF.App\Controller\FactorialResultController"/>
+      </call>
+    </service>
+    <service id="App\Controller\SecurityController" class="App\Controller\SecurityController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.ychIlgF.App\Controller\SecurityController"/>
+      </call>
+    </service>
+    <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" public="false" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+    </service>
+    <service id="App\DataFixtures\UserFixtures" class="App\DataFixtures\UserFixtures" public="false" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+      <argument type="service" id="security.user_password_encoder.generic"/>
+    </service>
+    <service id="App\Rabbit\NumberService" class="App\Rabbit\NumberService" public="false" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
+    <service id="App\Repository\FactorialResultRepository" class="App\Repository\FactorialResultRepository" public="false" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\UserRepository" class="App\Repository\UserRepository" public="false" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Security\LoginCustomAuthenticator" class="App\Security\LoginCustomAuthenticator" public="false" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="security.csrf.token_manager"/>
+      <argument type="service" id="security.user_password_encoder.generic"/>
+    </service>
+    <service id="number_service" class="App\Rabbit\NumberService" public="false" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
@@ -618,11 +758,17 @@
       <argument type="collection">
         <argument>Symfony\Component\Form\Extension\Core\Type</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
+        <argument>EasyCorp\Bundle\EasyAdminBundle\Form\Type</argument>
       </argument>
       <argument type="collection">
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type\EntityType</argument>
+        <argument>EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType</argument>
+        <argument>EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminAutocompleteType</argument>
+        <argument>EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminDividerType</argument>
+        <argument>EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminSectionType</argument>
+        <argument>EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminGroupType</argument>
       </argument>
       <argument type="collection">
         <argument>Symfony\Component\Form\Extension\HttpFoundation\Type\FormTypeHttpFoundationExtension</argument>
@@ -632,10 +778,12 @@
         <argument>Symfony\Component\Form\Extension\Validator\Type\UploadValidatorExtension</argument>
         <argument>Symfony\Component\Form\Extension\Csrf\Type\FormTypeCsrfExtension</argument>
         <argument>Symfony\Component\Form\Extension\DataCollector\Type\DataCollectorTypeExtension</argument>
+        <argument>EasyCorp\Bundle\EasyAdminBundle\Form\Extension\EasyAdminExtension</argument>
       </argument>
       <argument type="collection">
         <argument>Symfony\Component\Form\Extension\Validator\ValidatorTypeGuesser</argument>
         <argument>Symfony\Bridge\Doctrine\Form\DoctrineOrmTypeGuesser</argument>
+        <argument>EasyCorp\Bundle\EasyAdminBundle\Form\Guesser\MissingDoctrineOrmTypeGuesser</argument>
       </argument>
       <call method="setName">
         <argument>debug:form</argument>
@@ -846,7 +994,7 @@
       <argument type="service" id="form.resolved_type_factory"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.wasPXBS"/>
+      <argument type="service" id=".service_locator.ef_7I_Q"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.http_foundation"/>
@@ -854,6 +1002,7 @@
           <argument type="service" id="form.type_extension.upload.validator"/>
           <argument type="service" id="form.type_extension.csrf"/>
           <argument type="service" id="form.type_extension.form.data_collector"/>
+          <argument type="service" id="easyadmin.form.type.extension"/>
         </argument>
         <argument key="Symfony\Component\Form\Extension\Core\Type\RepeatedType" type="iterator">
           <argument type="service" id="form.type_extension.repeated.validator"/>
@@ -865,6 +1014,7 @@
       <argument type="iterator">
         <argument type="service" id="form.type_guesser.validator"/>
         <argument type="service" id="form.type_guesser.doctrine"/>
+        <argument type="service" id="easyadmin.form.guesser.missing_doctrine_orm_type_guesser"/>
       </argument>
     </service>
     <service id="form.type_guesser.validator" class="Symfony\Component\Form\Extension\Validator\ValidatorTypeGuesser" public="false">
@@ -1060,6 +1210,8 @@
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.ar.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.ar.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.ar.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.ar.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.ar.xlf</argument>
           </argument>
           <argument key="az" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.az.xlf</argument>
@@ -1070,16 +1222,22 @@
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.bg.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.bg.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.bg.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.bg.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.bg.xlf</argument>
           </argument>
           <argument key="ca" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.ca.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.ca.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.ca.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.ca.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.ca.xlf</argument>
           </argument>
           <argument key="cs" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.cs.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.cs.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.cs.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.cs.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.cs.xlf</argument>
           </argument>
           <argument key="cy" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.cy.xlf</argument>
@@ -1088,26 +1246,36 @@
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.da.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.da.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.da.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.da.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.da.xlf</argument>
           </argument>
           <argument key="de" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.de.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.de.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.de.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.de.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.de.xlf</argument>
           </argument>
           <argument key="el" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.el.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.el.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.el.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.el.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.el.xlf</argument>
           </argument>
           <argument key="en" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.en.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.en.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.en.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.en.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.en.xlf</argument>
           </argument>
           <argument key="es" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.es.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.es.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.es.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.es.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.es.xlf</argument>
           </argument>
           <argument key="et" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.et.xlf</argument>
@@ -1116,25 +1284,35 @@
           <argument key="eu" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.eu.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.eu.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.eu.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.eu.xlf</argument>
           </argument>
           <argument key="fa" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.fa.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.fa.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.fa.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.fa.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.fa.xlf</argument>
           </argument>
           <argument key="fi" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.fi.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.fi.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.fi.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.fi.xlf</argument>
           </argument>
           <argument key="fr" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.fr.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.fr.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.fr.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.fr.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.fr.xlf</argument>
           </argument>
           <argument key="gl" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.gl.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.gl.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.gl.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.gl.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.gl.xlf</argument>
           </argument>
           <argument key="he" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.he.xlf</argument>
@@ -1145,11 +1323,15 @@
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.hr.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.hr.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.hr.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.hr.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.hr.xlf</argument>
           </argument>
           <argument key="hu" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.hu.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.hu.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.hu.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.hu.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.hu.xlf</argument>
           </argument>
           <argument key="hy" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.hy.xlf</argument>
@@ -1164,6 +1346,8 @@
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.it.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.it.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.it.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.it.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.it.xlf</argument>
           </argument>
           <argument key="ja" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.ja.xlf</argument>
@@ -1179,6 +1363,8 @@
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.lt.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.lt.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.lt.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.lt.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.lt.xlf</argument>
           </argument>
           <argument key="lv" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.lv.xlf</argument>
@@ -1198,6 +1384,8 @@
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.nl.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.nl.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.nl.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.nl.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.nl.xlf</argument>
           </argument>
           <argument key="nn" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.nn.xlf</argument>
@@ -1213,10 +1401,14 @@
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.pl.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.pl.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.pl.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.pl.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.pl.xlf</argument>
           </argument>
           <argument key="pt" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.pt.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.pt.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.pt.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.pt.xlf</argument>
           </argument>
           <argument key="pt_BR" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.pt_BR.xlf</argument>
@@ -1227,11 +1419,15 @@
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.ro.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.ro.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.ro.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.ro.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.ro.xlf</argument>
           </argument>
           <argument key="ru" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.ru.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.ru.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.ru.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.ru.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.ru.xlf</argument>
           </argument>
           <argument key="sk" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.sk.xlf</argument>
@@ -1242,6 +1438,8 @@
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.sl.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.sl.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.sl.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.sl.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.sl.xlf</argument>
           </argument>
           <argument key="sq" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.sq.xlf</argument>
@@ -1260,6 +1458,8 @@
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.sv.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.sv.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.sv.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.sv.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.sv.xlf</argument>
           </argument>
           <argument key="th" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.th.xlf</argument>
@@ -1273,10 +1473,14 @@
           <argument key="tr" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.tr.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.tr.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.tr.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.tr.xlf</argument>
           </argument>
           <argument key="uk" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.uk.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.uk.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.uk.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.uk.xlf</argument>
           </argument>
           <argument key="vi" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.vi.xlf</argument>
@@ -1286,6 +1490,8 @@
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.zh_CN.xlf</argument>
             <argument>/var/www/app/vendor/symfony/form/Resources/translations/validators.zh_CN.xlf</argument>
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.zh_CN.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.zh_CN.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.zh_CN.xlf</argument>
           </argument>
           <argument key="zh_TW" type="collection">
             <argument>/var/www/app/vendor/symfony/validator/Resources/translations/validators.zh_TW.xlf</argument>
@@ -1295,6 +1501,10 @@
           </argument>
           <argument key="ua" type="collection">
             <argument>/var/www/app/vendor/symfony/security/Core/Resources/translations/security.ua.xlf</argument>
+          </argument>
+          <argument key="sr_RS" type="collection">
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.sr_RS.xlf</argument>
+            <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.sr_RS.xlf</argument>
           </argument>
         </argument>
       </argument>
@@ -1565,6 +1775,9 @@
         <argument type="service" id="data_collector.dump"/>
       </call>
       <call method="add">
+        <argument type="service" id="easyadmin.data_collector"/>
+      </call>
+      <call method="add">
         <argument type="service" id="data_collector.config"/>
       </call>
     </service>
@@ -1725,6 +1938,22 @@
         <argument type="collection">
           <argument type="service" id="data_collector.router"/>
           <argument>onKernelController</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.controller</argument>
+        <argument type="collection">
+          <argument type="service" id="easyadmin.listener.controller"/>
+          <argument>onKernelController</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>easy_admin.post_initialize</argument>
+        <argument type="collection">
+          <argument type="service" id="easyadmin.listener.request_post_initialize"/>
+          <argument>initializeRequest</argument>
         </argument>
         <argument>0</argument>
       </call>
@@ -2565,18 +2794,18 @@
     </service>
     <service id="doctrine.dbal.default_connection" class="Doctrine\DBAL\Connection" public="true">
       <argument type="collection">
-        <argument key="driver">pdo_mysql</argument>
-        <argument key="charset">utf8mb4</argument>
+        <argument key="driver">pdo_pgsql</argument>
+        <argument key="charset">utf8</argument>
         <argument key="url">%env(resolve:DATABASE_URL)%</argument>
         <argument key="host">localhost</argument>
         <argument key="port">null</argument>
         <argument key="user">root</argument>
         <argument key="password">null</argument>
         <argument key="driverOptions" type="collection"/>
-        <argument key="serverVersion">5.7</argument>
+        <argument key="serverVersion">9.6</argument>
         <argument key="defaultTableOptions" type="collection">
-          <argument key="charset">utf8mb4</argument>
-          <argument key="collate">utf8mb4_unicode_ci</argument>
+          <argument key="charset">utf8</argument>
+          <argument key="collate">utf8_unicode_ci</argument>
         </argument>
       </argument>
       <argument type="service" id="doctrine.dbal.default_connection.configuration"/>
@@ -2602,7 +2831,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.9_yeNH1"/>
+      <argument type="service" id=".service_locator.RAvN0Gv"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -2859,6 +3088,7 @@
     </service>
     <service id="security.authentication.manager" class="Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager" public="false">
       <argument type="iterator">
+        <argument type="service" id="security.authentication.provider.guard.main"/>
         <argument type="service" id="security.authentication.provider.anonymous.main"/>
       </argument>
       <argument>true</argument>
@@ -2877,7 +3107,14 @@
       <argument>none</argument>
     </service>
     <service id="security.encoder_factory.generic" class="Symfony\Component\Security\Core\Encoder\EncoderFactory" public="false">
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="App\Entity\User" type="collection">
+          <argument key="class">Symfony\Component\Security\Core\Encoder\BCryptPasswordEncoder</argument>
+          <argument key="arguments" type="collection">
+            <argument>12</argument>
+          </argument>
+        </argument>
+      </argument>
     </service>
     <service id="security.user_password_encoder.generic" class="Symfony\Component\Security\Core\Encoder\UserPasswordEncoder" public="false">
       <argument type="service" id="security.encoder_factory.generic"/>
@@ -2990,12 +3227,20 @@
       <argument type="service" id="security.authentication.retry_entry_point"/>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
     </service>
-    <service id="security.access_map" class="Symfony\Component\Security\Http\AccessMap" public="false"/>
+    <service id="security.access_map" class="Symfony\Component\Security\Http\AccessMap" public="false">
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.Yk6K2AJ"/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+    </service>
     <service id="security.context_listener" class="Symfony\Component\Security\Http\Firewall\ContextListener" public="false">
       <tag name="monolog.logger" channel="security"/>
       <argument type="service" id="security.token_storage"/>
       <argument type="iterator">
-        <argument type="service" id="security.user.provider.concrete.in_memory"/>
+        <argument type="service" id="security.user.provider.concrete.app_user_provider"/>
       </argument>
       <argument></argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
@@ -3288,8 +3533,11 @@
       <argument type="service" id="debug.event_dispatcher"/>
       <argument type="service" id="security.logout_url_generator"/>
     </service>
-    <service id="security.user.provider.concrete.in_memory" class="Symfony\Component\Security\Core\User\InMemoryUserProvider" public="false">
-      <argument type="collection"/>
+    <service id="security.user.provider.concrete.app_user_provider" class="Symfony\Bridge\Doctrine\Security\User\EntityUserProvider" public="false">
+      <argument type="service" id="doctrine"/>
+      <argument>App\Entity\User</argument>
+      <argument>uuid</argument>
+      <argument>null</argument>
     </service>
     <service id="security.firewall.map.config.dev" class="Symfony\Bundle\SecurityBundle\Security\FirewallConfig" public="false">
       <argument>dev</argument>
@@ -3320,12 +3568,13 @@
       <argument>null</argument>
       <argument>true</argument>
       <argument>false</argument>
-      <argument>security.user.provider.concrete.in_memory</argument>
+      <argument>security.user.provider.concrete.app_user_provider</argument>
       <argument>main</argument>
-      <argument>null</argument>
+      <argument>App\Security\LoginCustomAuthenticator</argument>
       <argument>null</argument>
       <argument>null</argument>
       <argument type="collection">
+        <argument>guard</argument>
         <argument>anonymous</argument>
       </argument>
       <argument>null</argument>
@@ -3333,12 +3582,30 @@
     <service id="security.context_listener.0" class="Symfony\Component\Security\Http\Firewall\ContextListener" public="false">
       <argument type="service" id="security.token_storage"/>
       <argument type="iterator">
-        <argument type="service" id="security.user.provider.concrete.in_memory"/>
+        <argument type="service" id="security.user.provider.concrete.app_user_provider"/>
       </argument>
       <argument>main</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
       <argument type="service" id="security.authentication.trust_resolver"/>
+    </service>
+    <service id="security.authentication.provider.guard.main" class="Symfony\Component\Security\Guard\Provider\GuardAuthenticationProvider" public="false">
+      <argument type="iterator">
+        <argument type="service" id="App\Security\LoginCustomAuthenticator"/>
+      </argument>
+      <argument type="service" id="security.user.provider.concrete.app_user_provider"/>
+      <argument>main</argument>
+      <argument type="service" id="security.user_checker"/>
+    </service>
+    <service id="security.authentication.listener.guard.main" class="Symfony\Component\Security\Guard\Firewall\GuardAuthenticationListener" public="false">
+      <tag name="security.remember_me_aware" id="main" provider="security.user.provider.concrete.app_user_provider"/>
+      <argument type="service" id="security.authentication.guard_handler"/>
+      <argument type="service" id="security.authentication.manager"/>
+      <argument>main</argument>
+      <argument type="iterator">
+        <argument type="service" id="App\Security\LoginCustomAuthenticator"/>
+      </argument>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -3354,7 +3621,7 @@
       <argument type="service" id="security.authentication.trust_resolver"/>
       <argument type="service" id="security.http_utils"/>
       <argument>main</argument>
-      <argument>null</argument>
+      <argument type="service" id="App\Security\LoginCustomAuthenticator"/>
       <argument>null</argument>
       <argument>null</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
@@ -3364,6 +3631,7 @@
       <argument type="iterator">
         <argument type="service" id="security.channel_listener"/>
         <argument type="service" id="security.context_listener.0"/>
+        <argument type="service" id="security.authentication.listener.guard.main"/>
         <argument type="service" id="security.authentication.listener.anonymous.main"/>
         <argument type="service" id="security.access_listener"/>
       </argument>
@@ -3378,10 +3646,15 @@
         <argument key="security.firewall.map.context.main" type="service" id="security.firewall.map.context.main"/>
       </argument>
     </service>
+    <service id=".security.request_matcher.Yk6K2AJ" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+      <argument>^/admin</argument>
+    </service>
     <service id="security.command.user_password_encoder" class="Symfony\Bundle\SecurityBundle\Command\UserPasswordEncoderCommand" public="false">
       <tag name="console.command" command="security:encode-password"/>
       <argument type="service" id="security.encoder_factory.generic"/>
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument>App\Entity\User</argument>
+      </argument>
       <call method="setName">
         <argument>security:encode-password</argument>
       </call>
@@ -3615,6 +3888,9 @@
       <call method="addExtension">
         <argument type="service" id="twig.extension.webprofiler"/>
       </call>
+      <call method="addExtension">
+        <argument type="service" id="easyadmin.twig.extension"/>
+      </call>
       <call method="addGlobal">
         <argument>app</argument>
         <argument type="service" id="twig.app_variable"/>
@@ -3720,6 +3996,22 @@
       <call method="addPath">
         <argument>/var/www/app/vendor/symfony/debug-bundle/Resources/views</argument>
         <argument>!Debug</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/views</argument>
+        <argument>EasyAdmin</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/app/vendor/easycorp/easyadmin-bundle/src/Resources/views</argument>
+        <argument>!EasyAdmin</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/app/vendor/php-amqplib/rabbitmq-bundle/Resources/views</argument>
+        <argument>OldSoundRabbitMq</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/app/vendor/php-amqplib/rabbitmq-bundle/Resources/views</argument>
+        <argument>!OldSoundRabbitMq</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/app/templates</argument>
@@ -4113,6 +4405,396 @@
         <argument>server:log</argument>
       </call>
     </service>
+    <service id="easyadmin.config.manager" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\ConfigManager" public="true">
+      <argument>%easyadmin.config%</argument>
+      <argument>true</argument>
+      <argument type="service" id="property_accessor"/>
+      <argument type="service" id="cache.app"/>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.normalizer_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.design_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.menu_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.action_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.metadata_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.property_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.view_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.template_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.default_config_pass"/>
+      </call>
+    </service>
+    <service id="easyadmin.query_builder" class="EasyCorp\Bundle\EasyAdminBundle\Search\QueryBuilder" public="true">
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="easyadmin.finder" class="EasyCorp\Bundle\EasyAdminBundle\Search\Finder" public="false">
+      <argument type="service" id="easyadmin.query_builder"/>
+      <argument type="service" id="easyadmin.paginator"/>
+    </service>
+    <service id="easyadmin.autocomplete" class="EasyCorp\Bundle\EasyAdminBundle\Search\Autocomplete" public="true">
+      <argument type="service" id="easyadmin.config.manager"/>
+      <argument type="service" id="easyadmin.finder"/>
+      <argument type="service" id="property_accessor"/>
+    </service>
+    <service id="easyadmin.paginator" class="EasyCorp\Bundle\EasyAdminBundle\Search\Paginator" public="true"/>
+    <service id="easyadmin.router" class="EasyCorp\Bundle\EasyAdminBundle\Router\EasyAdminRouter" public="true">
+      <argument type="service" id="easyadmin.config.manager"/>
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="property_accessor"/>
+      <argument type="service" id="request_stack" on-invalid="null"/>
+    </service>
+    <service id="easyadmin.twig.extension" class="EasyCorp\Bundle\EasyAdminBundle\Twig\EasyAdminTwigExtension" public="false">
+      <tag name="twig.extension"/>
+      <argument type="service" id="easyadmin.config.manager"/>
+      <argument type="service" id="property_accessor"/>
+      <argument type="service" id="easyadmin.router"/>
+      <argument>true</argument>
+      <argument type="service" id="security.logout_url_generator" on-invalid="null"/>
+      <argument type="service" id="translator.data_collector" on-invalid="null"/>
+    </service>
+    <service id="easyadmin.listener.controller" class="EasyCorp\Bundle\EasyAdminBundle\EventListener\ControllerListener" public="true">
+      <tag name="kernel.event_listener" event="kernel.controller" method="onKernelController"/>
+      <tag name="container.hot_path"/>
+      <argument type="service" id="easyadmin.config.manager"/>
+      <argument type="service" id="debug.controller_resolver"/>
+    </service>
+    <service id="easyadmin.listener.request_post_initialize" class="EasyCorp\Bundle\EasyAdminBundle\EventListener\RequestPostInitializeListener" public="true">
+      <tag name="kernel.event_listener" event="easy_admin.post_initialize" method="initializeRequest"/>
+      <argument type="service" id="doctrine"/>
+      <argument type="service" id="request_stack" on-invalid="null"/>
+    </service>
+    <service id="easyadmin.data_collector" class="EasyCorp\Bundle\EasyAdminBundle\DataCollector\EasyAdminDataCollector" public="false">
+      <tag name="data_collector" template="@EasyAdmin/data_collector/easyadmin.html.twig" id="easyadmin"/>
+      <argument type="service" id="easyadmin.config.manager"/>
+    </service>
+    <service id="easyadmin.configuration.normalizer_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\NormalizerConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="90"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="easyadmin.configuration.design_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\DesignConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="80"/>
+      <argument>en</argument>
+    </service>
+    <service id="easyadmin.configuration.menu_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\MenuConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="70"/>
+    </service>
+    <service id="easyadmin.configuration.action_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\ActionConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="60"/>
+    </service>
+    <service id="easyadmin.configuration.metadata_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\MetadataConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="50"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="easyadmin.configuration.property_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\PropertyConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="40"/>
+      <argument type="service" id="form.registry"/>
+    </service>
+    <service id="easyadmin.configuration.view_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\ViewConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="30"/>
+    </service>
+    <service id="easyadmin.configuration.template_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\TemplateConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="20"/>
+      <argument type="service" id="twig.loader.native_filesystem"/>
+    </service>
+    <service id="easyadmin.configuration.default_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\DefaultConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="10"/>
+    </service>
+    <service id="EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController" class="EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController" public="true" autowire="true">
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.i1gkhP6.EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController"/>
+      </call>
+    </service>
+    <service id="easyadmin.form.type" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType">
+      <tag name="form.type" alias="easyadmin"/>
+      <argument type="service" id="easyadmin.config.manager"/>
+      <argument type="collection">
+        <argument key="7" type="service" id="easyadmin.form.type.configurator.textarea"/>
+        <argument key="6" type="service" id="easyadmin.form.type.configurator.autocomplete"/>
+        <argument key="5" type="service" id="easyadmin.form.type.configurator.collection"/>
+        <argument key="4" type="service" id="easyadmin.form.type.configurator.checkbox"/>
+        <argument key="3" type="service" id="easyadmin.form.type.configurator.type"/>
+        <argument key="2" type="service" id="easyadmin.form.type.configurator.entity"/>
+        <argument key="1" type="service" id="easyadmin.form.type.configurator.fos_ckeditor"/>
+        <argument key="0" type="service" id="easyadmin.form.type.configurator.ivory_ckeditor"/>
+      </argument>
+    </service>
+    <service id="easyadmin.form.type.autocomplete" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminAutocompleteType">
+      <tag name="form.type" alias="easyadmin_autocomplete"/>
+      <argument type="service" id="easyadmin.config.manager"/>
+    </service>
+    <service id="easyadmin.form.type.divider" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminDividerType">
+      <tag name="form.type" alias="easyadmin_divider"/>
+    </service>
+    <service id="easyadmin.form.type.section" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminSectionType">
+      <tag name="form.type" alias="easyadmin_section"/>
+    </service>
+    <service id="easyadmin.form.type.group" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminGroupType">
+      <tag name="form.type" alias="easyadmin_group"/>
+    </service>
+    <service id="easyadmin.form.type.extension" class="EasyCorp\Bundle\EasyAdminBundle\Form\Extension\EasyAdminExtension">
+      <tag name="form.type_extension" alias="form" extended_type="Symfony\Component\Form\Extension\Core\Type\FormType" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType"/>
+      <argument type="service" id="request_stack" on-invalid="null"/>
+    </service>
+    <service id="easyadmin.form.type_guesser_chain" class="Symfony\Component\Form\FormTypeGuesserChain" public="false">
+      <argument type="collection">
+        <argument type="service" id="form.type_guesser.validator"/>
+        <argument type="service" id="form.type_guesser.doctrine"/>
+        <argument type="service" id="easyadmin.form.guesser.missing_doctrine_orm_type_guesser"/>
+      </argument>
+    </service>
+    <service id="easyadmin.form.type.configurator.textarea" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\Configurator\TextareaTypeConfigurator" public="false">
+      <tag name="easyadmin.form.type.configurator" priority="40"/>
+    </service>
+    <service id="easyadmin.form.type.configurator.autocomplete" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\Configurator\AutocompleteTypeConfigurator" public="false">
+      <tag name="easyadmin.form.type.configurator" priority="30"/>
+    </service>
+    <service id="easyadmin.form.type.configurator.collection" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\Configurator\CollectionTypeConfigurator" public="false">
+      <tag name="easyadmin.form.type.configurator" priority="20"/>
+    </service>
+    <service id="easyadmin.form.type.configurator.checkbox" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\Configurator\CheckboxTypeConfigurator" public="false">
+      <tag name="easyadmin.form.type.configurator" priority="10"/>
+    </service>
+    <service id="easyadmin.form.type.configurator.type" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\Configurator\TypeConfigurator" public="false">
+      <tag name="easyadmin.form.type.configurator" priority="0"/>
+      <argument type="service" id="easyadmin.config.manager"/>
+    </service>
+    <service id="easyadmin.form.type.configurator.entity" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\Configurator\EntityTypeConfigurator" public="false">
+      <tag name="easyadmin.form.type.configurator" priority="-20"/>
+    </service>
+    <service id="easyadmin.form.type.configurator.ivory_ckeditor" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\Configurator\IvoryCKEditorTypeConfigurator" public="false">
+      <tag name="easyadmin.form.type.configurator" priority="-130"/>
+    </service>
+    <service id="easyadmin.form.type.configurator.fos_ckeditor" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\Configurator\FOSCKEditorTypeConfigurator" public="false">
+      <tag name="easyadmin.form.type.configurator" priority="-130"/>
+    </service>
+    <service id="easyadmin.form.guesser.missing_doctrine_orm_type_guesser" class="EasyCorp\Bundle\EasyAdminBundle\Form\Guesser\MissingDoctrineOrmTypeGuesser" public="true">
+      <tag name="form.type_guesser"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="doctrine.fixtures_load_command" class="Doctrine\Bundle\FixturesBundle\Command\LoadDataFixturesDoctrineCommand">
+      <tag name="console.command" command="doctrine:fixtures:load"/>
+      <argument type="service" id="doctrine.fixtures.loader"/>
+      <call method="setName">
+        <argument>doctrine:fixtures:load</argument>
+      </call>
+    </service>
+    <service id="doctrine.fixtures.loader" class="Doctrine\Bundle\FixturesBundle\Loader\SymfonyFixturesLoader" public="false">
+      <argument type="service" id="service_container"/>
+      <call method="addFixtures">
+        <argument type="collection">
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\AppFixtures"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\UserFixtures"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+        </argument>
+      </call>
+    </service>
+    <service id="old_sound_rabbit_mq.parts_holder" class="OldSound\RabbitMqBundle\RabbitMq\AmqpPartsHolder" public="true">
+      <call method="addPart">
+        <argument>old_sound_rabbit_mq.base_amqp</argument>
+        <argument type="service" id="old_sound_rabbit_mq.number_producer"/>
+      </call>
+      <call method="addPart">
+        <argument>old_sound_rabbit_mq.base_amqp</argument>
+        <argument type="service" id="old_sound_rabbit_mq.number_consumer"/>
+      </call>
+      <call method="addPart">
+        <argument>old_sound_rabbit_mq.producer</argument>
+        <argument type="service" id="old_sound_rabbit_mq.number_producer"/>
+      </call>
+      <call method="addPart">
+        <argument>old_sound_rabbit_mq.consumer</argument>
+        <argument type="service" id="old_sound_rabbit_mq.number_consumer"/>
+      </call>
+    </service>
+    <service id="old_sound_rabbit_mq.anon_consumer_command" class="OldSound\RabbitMqBundle\Command\AnonConsumerCommand">
+      <tag name="console.command" command="rabbitmq:anon-consumer"/>
+      <call method="setName">
+        <argument>rabbitmq:anon-consumer</argument>
+      </call>
+    </service>
+    <service id="old_sound_rabbit_mq.batch_consumer_command" class="OldSound\RabbitMqBundle\Command\BatchConsumerCommand">
+      <tag name="console.command" command="rabbitmq:batch:consumer"/>
+      <call method="setName">
+        <argument>rabbitmq:batch:consumer</argument>
+      </call>
+    </service>
+    <service id="old_sound_rabbit_mq.consumer_command" class="OldSound\RabbitMqBundle\Command\ConsumerCommand">
+      <tag name="console.command" command="rabbitmq:consumer"/>
+      <call method="setName">
+        <argument>rabbitmq:consumer</argument>
+      </call>
+    </service>
+    <service id="old_sound_rabbit_mq.delete_command" class="OldSound\RabbitMqBundle\Command\DeleteCommand">
+      <tag name="console.command" command="rabbitmq:delete"/>
+      <call method="setName">
+        <argument>rabbitmq:delete</argument>
+      </call>
+    </service>
+    <service id="old_sound_rabbit_mq.dynamic_consumer_command" class="OldSound\RabbitMqBundle\Command\DynamicConsumerCommand">
+      <tag name="console.command" command="rabbitmq:dynamic-consumer"/>
+      <call method="setName">
+        <argument>rabbitmq:dynamic-consumer</argument>
+      </call>
+    </service>
+    <service id="old_sound_rabbit_mq.multiple_consumer_command" class="OldSound\RabbitMqBundle\Command\MultipleConsumerCommand">
+      <tag name="console.command" command="rabbitmq:multiple-consumer"/>
+      <call method="setName">
+        <argument>rabbitmq:multiple-consumer</argument>
+      </call>
+    </service>
+    <service id="old_sound_rabbit_mq.purge_consumer_command" class="OldSound\RabbitMqBundle\Command\PurgeConsumerCommand">
+      <tag name="console.command" command="rabbitmq:purge"/>
+      <call method="setName">
+        <argument>rabbitmq:purge</argument>
+      </call>
+    </service>
+    <service id="old_sound_rabbit_mq.command.rpc_server_command" class="OldSound\RabbitMqBundle\Command\RpcServerCommand">
+      <tag name="console.command" command="rabbitmq:rpc-server"/>
+      <call method="setName">
+        <argument>rabbitmq:rpc-server</argument>
+      </call>
+    </service>
+    <service id="old_sound_rabbit_mq.command.setup_fabric_command" class="OldSound\RabbitMqBundle\Command\SetupFabricCommand">
+      <tag name="console.command" command="rabbitmq:setup-fabric"/>
+      <call method="setName">
+        <argument>rabbitmq:setup-fabric</argument>
+      </call>
+    </service>
+    <service id="old_sound_rabbit_mq.command.std_in_producer_command" class="OldSound\RabbitMqBundle\Command\StdInProducerCommand">
+      <tag name="console.command" command="rabbitmq:stdin-producer"/>
+      <call method="setName">
+        <argument>rabbitmq:stdin-producer</argument>
+      </call>
+    </service>
+    <service id="old_sound_rabbit_mq.connection_factory.default" class="OldSound\RabbitMqBundle\RabbitMq\AMQPConnectionFactory" public="false">
+      <argument>PhpAmqpLib\Connection\AMQPConnection</argument>
+      <argument type="collection">
+        <argument key="host">172.19.0.1</argument>
+        <argument key="port">5672</argument>
+        <argument key="user">user</argument>
+        <argument key="password">password</argument>
+        <argument key="vhost">my_vhost</argument>
+        <argument key="url"></argument>
+        <argument key="lazy">false</argument>
+        <argument key="connection_timeout">3</argument>
+        <argument key="read_write_timeout">3</argument>
+        <argument key="use_socket">false</argument>
+        <argument key="ssl_context" type="collection"/>
+        <argument key="keepalive">false</argument>
+        <argument key="heartbeat">0</argument>
+      </argument>
+    </service>
+    <service id="old_sound_rabbit_mq.connection.default" class="PhpAmqpLib\Connection\AMQPConnection" public="true">
+      <tag name="old_sound_rabbit_mq.connection"/>
+      <factory service="old_sound_rabbit_mq.connection_factory.default" method="createConnection"/>
+    </service>
+    <service id="old_sound_rabbit_mq.number_producer" class="OldSound\RabbitMqBundle\RabbitMq\Producer" public="true">
+      <tag name="old_sound_rabbit_mq.base_amqp"/>
+      <tag name="old_sound_rabbit_mq.producer"/>
+      <argument type="service" id="old_sound_rabbit_mq.connection.default"/>
+      <call method="setExchangeOptions">
+        <argument type="collection">
+          <argument key="name">numbers</argument>
+          <argument key="type">direct</argument>
+          <argument key="passive">false</argument>
+          <argument key="durable">true</argument>
+          <argument key="auto_delete">false</argument>
+          <argument key="internal">false</argument>
+          <argument key="nowait">false</argument>
+          <argument key="declare">true</argument>
+          <argument key="arguments">null</argument>
+          <argument key="ticket">null</argument>
+        </argument>
+      </call>
+      <call method="setQueueOptions">
+        <argument type="collection">
+          <argument key="name"></argument>
+          <argument key="declare">false</argument>
+        </argument>
+      </call>
+      <call method="setEventDispatcher">
+        <argument type="service" id="debug.event_dispatcher" on-invalid="ignore"/>
+      </call>
+    </service>
+    <service id="old_sound_rabbit_mq.number_consumer" class="OldSound\RabbitMqBundle\RabbitMq\Consumer" public="true">
+      <tag name="old_sound_rabbit_mq.base_amqp"/>
+      <tag name="old_sound_rabbit_mq.consumer"/>
+      <argument type="service" id="old_sound_rabbit_mq.connection.default"/>
+      <call method="setExchangeOptions">
+        <argument type="collection">
+          <argument key="name">numbers</argument>
+          <argument key="type">direct</argument>
+          <argument key="passive">false</argument>
+          <argument key="durable">true</argument>
+          <argument key="auto_delete">false</argument>
+          <argument key="internal">false</argument>
+          <argument key="nowait">false</argument>
+          <argument key="declare">true</argument>
+          <argument key="arguments">null</argument>
+          <argument key="ticket">null</argument>
+        </argument>
+      </call>
+      <call method="setQueueOptions">
+        <argument type="collection">
+          <argument key="name">numbers</argument>
+          <argument key="passive">false</argument>
+          <argument key="durable">true</argument>
+          <argument key="exclusive">false</argument>
+          <argument key="auto_delete">false</argument>
+          <argument key="nowait">false</argument>
+          <argument key="declare">true</argument>
+          <argument key="arguments">null</argument>
+          <argument key="ticket">null</argument>
+          <argument key="routing_keys" type="collection"/>
+        </argument>
+      </call>
+      <call method="setCallback">
+        <argument type="collection">
+          <argument type="service" id="number_service"/>
+          <argument>execute</argument>
+        </argument>
+      </call>
+      <call method="setEventDispatcher">
+        <argument type="service" id="debug.event_dispatcher" on-invalid="ignore"/>
+      </call>
+    </service>
+    <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\DefaultController" class="App\Controller\DefaultController" public="false" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DefaultController" class="App\Controller\DefaultController" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\DefaultController" class="App\Controller\DefaultController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\FactorialResultController" class="App\Controller\FactorialResultController" public="false" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\FactorialResultController" class="App\Controller\FactorialResultController" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\FactorialResultController" class="App\Controller\FactorialResultController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" public="false" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\UserFixtures" class="App\DataFixtures\UserFixtures" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\UserFixtures" class="App\DataFixtures\UserFixtures" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\FactorialResultRepository" class="App\Repository\FactorialResultRepository" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\FactorialResultRepository" class="App\Repository\FactorialResultRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\UserRepository" class="App\Repository\UserRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="maker.auto_command.make_auth" class="Symfony\Bundle\MakerBundle\Command\MakerCommand" public="false">
       <tag name="console.command" command="make:auth"/>
       <argument type="service" id="maker.maker.make_authenticator"/>
@@ -4257,9 +4939,27 @@
         <argument>make:migration</argument>
       </call>
     </service>
-    <service id=".service_locator.9_yeNH1" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.D.UCRnb" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="producer" type="service" id="old_sound_rabbit_mq.number_producer"/>
+        <argument key="user" type="service" id=".errored..service_locator.D.UCRnb.Symfony\Component\Security\Core\User\UserInterface"/>
+      </argument>
+    </service>
+    <service id=".service_locator.ypl2DZZ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="authenticationUtils" type="service" id="security.authentication_utils"/>
+      </argument>
+    </service>
+    <service id=".service_locator.7OK_NY4" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="App\Controller\FactorialResultController::show" type="service" id=".service_locator.D.UCRnb"/>
+        <argument key="App\Controller\SecurityController::login" type="service" id=".service_locator.ypl2DZZ"/>
+        <argument key="App\Controller\FactorialResultController:show" type="service" id=".service_locator.D.UCRnb"/>
+        <argument key="App\Controller\SecurityController:login" type="service" id=".service_locator.ypl2DZZ"/>
+      </argument>
     </service>
     <service id=".service_locator.yQVjGlt" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -4318,12 +5018,24 @@
       <argument type="service" id="debug.argument_resolver.variadic.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.wasPXBS" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.ef_7I_Q" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminAutocompleteType" type="service" id="easyadmin.form.type.autocomplete"/>
+        <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminDividerType" type="service" id="easyadmin.form.type.divider"/>
+        <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType" type="service" id="easyadmin.form.type"/>
+        <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminGroupType" type="service" id="easyadmin.form.type.group"/>
+        <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminSectionType" type="service" id="easyadmin.form.type.section"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="service" id="form.type.form"/>
+      </argument>
+    </service>
+    <service id=".service_locator.RAvN0Gv" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="App\Repository\FactorialResultRepository" type="service" id="App\Repository\FactorialResultRepository"/>
+        <argument key="App\Repository\UserRepository" type="service" id="App\Repository\UserRepository"/>
       </argument>
     </service>
     <service id="security.logout.handler.csrf_token_clearing" class="Symfony\Component\Security\Http\Logout\CsrfTokenClearingLogoutHandler" public="false">
@@ -4491,10 +5203,42 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.9_yeNH1"/>
+      <argument type="service" id=".service_locator.7OK_NY4"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
+    <service id=".service_locator.ychIlgF" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="doctrine" type="service" id="doctrine" on-invalid="ignore"/>
+        <argument key="form.factory" type="service" id="form.factory" on-invalid="ignore"/>
+        <argument key="http_kernel" type="service" id="http_kernel" on-invalid="ignore"/>
+        <argument key="parameter_bag" type="service" id="parameter_bag" on-invalid="ignore"/>
+        <argument key="request_stack" type="service" id="request_stack" on-invalid="ignore"/>
+        <argument key="router" type="service" id="router.default" on-invalid="ignore"/>
+        <argument key="security.authorization_checker" type="service" id="security.authorization_checker" on-invalid="ignore"/>
+        <argument key="security.csrf.token_manager" type="service" id="security.csrf.token_manager" on-invalid="ignore"/>
+        <argument key="security.token_storage" type="service" id="security.token_storage" on-invalid="ignore"/>
+        <argument key="serializer" type="service" id="serializer" on-invalid="ignore"/>
+        <argument key="session" type="service" id="session" on-invalid="ignore"/>
+        <argument key="twig" type="service" id="twig" on-invalid="ignore"/>
+      </argument>
+    </service>
+    <service id=".service_locator.ychIlgF.App\Controller\DefaultController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <argument>App\Controller\DefaultController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.ychIlgF" method="withContext"/>
+    </service>
+    <service id=".service_locator.ychIlgF.App\Controller\FactorialResultController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <argument>App\Controller\FactorialResultController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.ychIlgF" method="withContext"/>
+    </service>
+    <service id=".service_locator.ychIlgF.App\Controller\SecurityController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <argument>App\Controller\SecurityController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.ychIlgF" method="withContext"/>
+    </service>
     <service id=".service_locator.3nNxzEJ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -4544,6 +5288,35 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.UEpceA5" method="withContext"/>
     </service>
+    <service id=".service_locator.i1gkhP6" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="doctrine" type="service" id="doctrine" on-invalid="ignore"/>
+        <argument key="easyadmin.autocomplete" type="service" id="easyadmin.autocomplete"/>
+        <argument key="easyadmin.config.manager" type="service" id="easyadmin.config.manager"/>
+        <argument key="easyadmin.paginator" type="service" id="easyadmin.paginator"/>
+        <argument key="easyadmin.property_accessor" type="service" id="property_accessor"/>
+        <argument key="easyadmin.query_builder" type="service" id="easyadmin.query_builder"/>
+        <argument key="event_dispatcher" type="service" id="debug.event_dispatcher"/>
+        <argument key="form.factory" type="service" id="form.factory" on-invalid="ignore"/>
+        <argument key="http_kernel" type="service" id="http_kernel" on-invalid="ignore"/>
+        <argument key="parameter_bag" type="service" id="parameter_bag" on-invalid="ignore"/>
+        <argument key="request_stack" type="service" id="request_stack" on-invalid="ignore"/>
+        <argument key="router" type="service" id="router.default" on-invalid="ignore"/>
+        <argument key="security.authorization_checker" type="service" id="security.authorization_checker" on-invalid="ignore"/>
+        <argument key="security.csrf.token_manager" type="service" id="security.csrf.token_manager" on-invalid="ignore"/>
+        <argument key="security.token_storage" type="service" id="security.token_storage" on-invalid="ignore"/>
+        <argument key="serializer" type="service" id="serializer" on-invalid="ignore"/>
+        <argument key="session" type="service" id="session" on-invalid="ignore"/>
+        <argument key="twig" type="service" id="twig" on-invalid="ignore"/>
+      </argument>
+    </service>
+    <service id=".service_locator.i1gkhP6.EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <argument>EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.i1gkhP6" method="withContext"/>
+    </service>
+    <service id=".errored..service_locator.D.UCRnb.Symfony\Component\Security\Core\User\UserInterface" class="Symfony\Component\Security\Core\User\UserInterface"/>
     <service id=".service_locator.HKoUR8q" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -4557,7 +5330,7 @@
       </argument>
     </service>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
-      <argument type="service" id=".service_locator.ZAlrwBS"/>
+      <argument type="service" id=".service_locator.n9yep3s"/>
       <argument type="collection">
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -4610,6 +5383,17 @@
         <argument key="server:stop">web_server.command.server_stop</argument>
         <argument key="server:status">web_server.command.server_status</argument>
         <argument key="server:log">web_server.command.server_log</argument>
+        <argument key="doctrine:fixtures:load">doctrine.fixtures_load_command</argument>
+        <argument key="rabbitmq:anon-consumer">old_sound_rabbit_mq.anon_consumer_command</argument>
+        <argument key="rabbitmq:batch:consumer">old_sound_rabbit_mq.batch_consumer_command</argument>
+        <argument key="rabbitmq:consumer">old_sound_rabbit_mq.consumer_command</argument>
+        <argument key="rabbitmq:delete">old_sound_rabbit_mq.delete_command</argument>
+        <argument key="rabbitmq:dynamic-consumer">old_sound_rabbit_mq.dynamic_consumer_command</argument>
+        <argument key="rabbitmq:multiple-consumer">old_sound_rabbit_mq.multiple_consumer_command</argument>
+        <argument key="rabbitmq:purge">old_sound_rabbit_mq.purge_consumer_command</argument>
+        <argument key="rabbitmq:rpc-server">old_sound_rabbit_mq.command.rpc_server_command</argument>
+        <argument key="rabbitmq:setup-fabric">old_sound_rabbit_mq.command.setup_fabric_command</argument>
+        <argument key="rabbitmq:stdin-producer">old_sound_rabbit_mq.command.std_in_producer_command</argument>
         <argument key="make:auth">maker.auto_command.make_auth</argument>
         <argument key="make:command">maker.auto_command.make_command</argument>
         <argument key="make:controller">maker.auto_command.make_controller</argument>
@@ -4628,7 +5412,7 @@
         <argument key="make:migration">maker.auto_command.make_migration</argument>
       </argument>
     </service>
-    <service id=".service_locator.ZAlrwBS" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.n9yep3s" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="console.command.about" type="service" id="console.command.about"/>
@@ -4660,6 +5444,7 @@
         <argument key="doctrine.database_drop_command" type="service" id="doctrine.database_drop_command"/>
         <argument key="doctrine.database_import_command" type="service" id="doctrine.database_import_command"/>
         <argument key="doctrine.ensure_production_settings_command" type="service" id="doctrine.ensure_production_settings_command"/>
+        <argument key="doctrine.fixtures_load_command" type="service" id="doctrine.fixtures_load_command"/>
         <argument key="doctrine.generate_entities_command" type="service" id="doctrine.generate_entities_command"/>
         <argument key="doctrine.mapping_convert_command" type="service" id="doctrine.mapping_convert_command"/>
         <argument key="doctrine.mapping_import_command" type="service" id="doctrine.mapping_import_command"/>
@@ -4686,6 +5471,16 @@
         <argument key="maker.auto_command.make_user" type="service" id="maker.auto_command.make_user"/>
         <argument key="maker.auto_command.make_validator" type="service" id="maker.auto_command.make_validator"/>
         <argument key="maker.auto_command.make_voter" type="service" id="maker.auto_command.make_voter"/>
+        <argument key="old_sound_rabbit_mq.anon_consumer_command" type="service" id="old_sound_rabbit_mq.anon_consumer_command"/>
+        <argument key="old_sound_rabbit_mq.batch_consumer_command" type="service" id="old_sound_rabbit_mq.batch_consumer_command"/>
+        <argument key="old_sound_rabbit_mq.command.rpc_server_command" type="service" id="old_sound_rabbit_mq.command.rpc_server_command"/>
+        <argument key="old_sound_rabbit_mq.command.setup_fabric_command" type="service" id="old_sound_rabbit_mq.command.setup_fabric_command"/>
+        <argument key="old_sound_rabbit_mq.command.std_in_producer_command" type="service" id="old_sound_rabbit_mq.command.std_in_producer_command"/>
+        <argument key="old_sound_rabbit_mq.consumer_command" type="service" id="old_sound_rabbit_mq.consumer_command"/>
+        <argument key="old_sound_rabbit_mq.delete_command" type="service" id="old_sound_rabbit_mq.delete_command"/>
+        <argument key="old_sound_rabbit_mq.dynamic_consumer_command" type="service" id="old_sound_rabbit_mq.dynamic_consumer_command"/>
+        <argument key="old_sound_rabbit_mq.multiple_consumer_command" type="service" id="old_sound_rabbit_mq.multiple_consumer_command"/>
+        <argument key="old_sound_rabbit_mq.purge_consumer_command" type="service" id="old_sound_rabbit_mq.purge_consumer_command"/>
         <argument key="security.command.user_password_encoder" type="service" id="security.command.user_password_encoder"/>
         <argument key="swiftmailer.command.debug" type="service" id="swiftmailer.command.debug"/>
         <argument key="swiftmailer.command.new_email" type="service" id="swiftmailer.command.new_email"/>
@@ -4758,6 +5553,8 @@
     </service>
     <service id="Psr\Container\ContainerInterface" alias="service_container" public="false"/>
     <service id="Symfony\Component\DependencyInjection\ContainerInterface" alias="service_container" public="false"/>
+    <service id="OldSound\RabbitMqBundle\RabbitMq\Producer" alias="old_sound_rabbit_mq.number_producer" public="false"/>
+    <service id="OldSound\RabbitMqBundle\RabbitMq\Consumer" alias="old_sound_rabbit_mq.number_consumer" public="false"/>
     <service id="Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface" alias="parameter_bag" public="false"/>
     <service id="Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface" alias="parameter_bag" public="false"/>
     <service id="Symfony\Component\EventDispatcher\EventDispatcherInterface" alias="debug.event_dispatcher" public="false"/>
@@ -4847,7 +5644,7 @@
     <service id="Symfony\Component\Security\Http\HttpUtils" alias="security.http_utils" public="false"/>
     <service id="Symfony\Component\Security\Guard\GuardAuthenticatorHandler" alias="security.authentication.guard_handler" public="false"/>
     <service id="security.firewall" alias="debug.security.firewall" public="false"/>
-    <service id="Symfony\Component\Security\Core\User\UserProviderInterface" alias="security.user.provider.concrete.in_memory"/>
+    <service id="Symfony\Component\Security\Core\User\UserProviderInterface" alias="security.user.provider.concrete.app_user_provider"/>
     <service id="security.authentication.session_strategy.main" alias="security.authentication.session_strategy"/>
     <service id="security.user_checker.main" alias="security.user_checker" public="false"/>
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker" public="false"/>
@@ -4867,7 +5664,12 @@
     <service id="Twig\Environment" alias="twig" public="false"/>
     <service id="logger" alias="monolog.logger"/>
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.9_yeNH1"/>
+    <service id="easyadmin.property_accessor" alias="property_accessor" public="true"/>
+    <service id="EasyCorp\Bundle\EasyAdminBundle\Configuration\ConfigManager" alias="easyadmin.config.manager"/>
+    <service id="EasyCorp\Bundle\EasyAdminBundle\Search\QueryBuilder" alias="easyadmin.query_builder"/>
+    <service id="EasyCorp\Bundle\EasyAdminBundle\Search\Paginator" alias="easyadmin.paginator"/>
+    <service id="EasyCorp\Bundle\EasyAdminBundle\Search\Autocomplete" alias="easyadmin.autocomplete"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.7OK_NY4"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id=".service_locator.AoifO_3" alias=".2_ServiceLocator~MP8cgUV" public="false"/>

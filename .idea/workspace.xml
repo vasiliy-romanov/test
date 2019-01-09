@@ -2,42 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1082441-593a-4746-b543-bdee4d9b2749" name="Default Changelist" comment="alfa version">
-      <change afterPath="$PROJECT_DIR$/app/config/packages/easy_admin.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/old_sound_rabbit_mq.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/twig_extensions.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/routes/easy_admin.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Consumer/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Controller/DefaultController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Controller/FactorialResultController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Controller/SecurityController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/DataFixtures/UserFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Entity/FactorialResult.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Entity/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Migrations/Version20181226134139.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Migrations/Version20181227100226.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Migrations/Version20181228062126.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Rabbit/NumberService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Repository/FactorialResultRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Repository/UserRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Security/LoginCustomAuthenticator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/factorial/result.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/security/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/my-project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/my-project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.env.dist" beforeDir="false" afterPath="$PROJECT_DIR$/app/.env.dist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/app/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/phpunit.xml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/app/phpunit.xml.dist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/app/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/var/cache/dev/annotations.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/var/cache/dev/annotations.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/var/cache/dev/srcDevDebugProjectContainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/var/cache/dev/srcDevDebugProjectContainer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/var/cache/dev/srcDevDebugProjectContainer.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/app/var/cache/dev/srcDevDebugProjectContainer.php.meta" afterDir="false" />
@@ -63,7 +27,6 @@
       <change beforePath="$PROJECT_DIR$/app/vendor/symfony/phpunit-bridge/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/vendor/symfony/phpunit-bridge/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/vendor/symfony/phpunit-bridge/phpunit.xml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/app/vendor/symfony/phpunit-bridge/phpunit.xml.dist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/vendor/symfony/test-pack/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/vendor/symfony/test-pack/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -185,29 +148,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/phpunit.xml.dist">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="9" lean-forward="true" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/Migrations/Version20181227100226.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="20" column="135" selection-start-line="20" selection-start-column="135" selection-end-line="20" selection-end-column="135" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
               <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/Migrations/Version20181227100226.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="20" column="134" selection-start-line="20" selection-start-column="134" selection-end-line="20" selection-end-column="134" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/phpunit.xml.dist">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -307,6 +270,7 @@
         <option value="$PROJECT_DIR$/app/src/Rabbit/NumberService.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/phpunit.xml.dist" />
+        <option value="$PROJECT_DIR$/app/src/Migrations/Version20181227100226.php" />
       </list>
     </option>
   </component>
@@ -646,8 +610,16 @@
       <workItem from="1541073006347" duration="121000" />
       <workItem from="1545300210206" duration="9173000" />
       <workItem from="1545634144733" duration="72293000" />
-      <workItem from="1547010780708" duration="12976000" />
+      <workItem from="1547010780708" duration="13974000" />
     </task>
+    <task id="LOCAL-00001" summary="alfa version">
+      <created>1547026040872</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1547026040873</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -674,7 +646,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109997000" />
+    <option name="totallyTimeSpent" value="110995000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="25" width="1922" height="1056" extended-state="6" />
@@ -682,7 +654,7 @@
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19583778" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" sideWeight="0.49839914" visible="true" weight="0.32941177" />
+      <window_info anchor="bottom" id="Messages" sideWeight="0.49839914" weight="0.32941177" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32941177" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32941177" />
@@ -693,7 +665,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49786553" weight="0.3090909" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49786553" visible="true" weight="0.3090909" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50160086" side_tool="true" weight="0.32941177" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.32941177" />
       <window_info anchor="bottom" id="SQL Generator" order="13" weight="0.32941177" />
@@ -737,7 +709,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="alfa version" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/Console/FindFactorialConsole.php" />
     <entry file="file://$PROJECT_DIR$/app/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/Entity.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1029,16 +1000,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/Rabbit/NumberService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
-          <folding>
-            <element signature="e#112#143#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/vendor/symfony/phpunit-bridge/phpunit.xml.dist">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1074,6 +1035,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/Rabbit/NumberService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
+          <folding>
+            <element signature="e#112#143#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1081,17 +1052,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/Migrations/Version20181227100226.php">
+    <entry file="file://$PROJECT_DIR$/app/phpunit.xml.dist">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="20" column="135" selection-start-line="20" selection-start-column="135" selection-end-line="20" selection-end-column="135" />
+        <state relative-caret-position="60">
+          <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/phpunit.xml.dist">
+    <entry file="file://$PROJECT_DIR$/app/src/Controller/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/Migrations/Version20181227100226.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="9" lean-forward="true" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+        <state relative-caret-position="285">
+          <caret line="20" column="134" selection-start-line="20" selection-start-column="134" selection-end-line="20" selection-end-column="134" />
         </state>
       </provider>
     </entry>

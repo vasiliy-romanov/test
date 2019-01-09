@@ -29,3 +29,8 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    number_service:
+        class: App\Rabbit\NumberService
+
+    OldSound\RabbitMqBundle\RabbitMq\Producer: '@old_sound_rabbit_mq.number_producer'
+    OldSound\RabbitMqBundle\RabbitMq\Consumer: '@old_sound_rabbit_mq.number_consumer'

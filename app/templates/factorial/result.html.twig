@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Calculate Factorial{% endblock %}
+
+{% block body %}
+    <form class="align-items-baseline" method="get">
+        <h1 class="h3 mb-3 font-weight-normal">Enter number</h1>
+        <input type="number" name="number" >
+        <button class="btn btn-primary">
+            Calculate
+        </button>
+    </form>
+
+    <br>
+
+    <h2 class="h4 mb-4 font-weight-normal">Calculated Factorial</h2>
+    {% if result %}
+        {% for res in result %}
+            <div class="card-subtitle">
+                <label class="label mb-4"> {{ res.numberFactorial }}! = {{ res.rezult }} </label>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="card-subtitle">
+            <label class="label mb-4">Not calculated factorial.</label>
+        </div>
+    {% endif %}
+{% endblock %}

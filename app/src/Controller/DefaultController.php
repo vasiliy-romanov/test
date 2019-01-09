@@ -1,0 +1,22 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: vasily
+ * Date: 28.12.18
+ * Time: 10:32
+ */
+
+namespace App\Controller;
+
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\Security\Core\User\UserInterface;
+
+class DefaultController extends AbstractController
+{
+    public function index()
+    {
+        return $this->redirectToRoute('app_login');
+    }
+}
