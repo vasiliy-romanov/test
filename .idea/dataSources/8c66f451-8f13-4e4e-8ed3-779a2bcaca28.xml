@@ -79,8 +79,8 @@
       <Comment>standard public schema</Comment>
       <StateNumber>348</StateNumber>
       <Owner>test</Owner>
-      <IntrospectionTimestamp>2018-12-28.16:37:01.551</IntrospectionTimestamp>
-      <IntrospectionStateNumber>557</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2019-01-09.18:07:45.176</IntrospectionTimestamp>
+      <IntrospectionStateNumber>679</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -45205,16 +45205,16 @@
       <CacheSize>1</CacheSize>
     </sequence>
     <sequence id="3870" parent="11" name="user_id_seq">
-      <ObjectId>24582</ObjectId>
+      <ObjectId>24619</ObjectId>
       <Owner>test</Owner>
-      <StateNumber>555</StateNumber>
+      <StateNumber>679</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
     </sequence>
     <table id="3871" parent="11" name="factorial_result">
       <ObjectId>24595</ObjectId>
       <Owner>test</Owner>
-      <StateNumber>557</StateNumber>
+      <StateNumber>679</StateNumber>
     </table>
     <table id="3872" parent="11" name="migration_versions">
       <ObjectId>24577</ObjectId>
@@ -88405,10 +88405,10 @@ umserver</ColNames>
     </column>
     <column id="13880" parent="3871" name="rezult">
       <Position>3</Position>
-      <DataType>bigint|0s</DataType>
+      <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>556</StateNumber>
-      <TypeId>20</TypeId>
+      <StateNumber>679</StateNumber>
+      <TypeId>25</TypeId>
     </column>
     <column id="13881" parent="3871" name="number_factorial">
       <Position>4</Position>
@@ -88419,13 +88419,13 @@ umserver</ColNames>
     </column>
     <index id="13882" parent="3871" name="factorial_result_pkey">
       <ObjectId>24598</ObjectId>
-      <StateNumber>556</StateNumber>
+      <StateNumber>679</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <index id="13883" parent="3871" name="idx_9d4c63d19d86650f">
       <ObjectId>24600</ObjectId>
-      <StateNumber>556</StateNumber>
+      <StateNumber>679</StateNumber>
       <ColNames>user_id_id</ColNames>
     </index>
     <key id="13884" parent="3871" name="factorial_result_pkey">
@@ -88435,77 +88435,67 @@ umserver</ColNames>
       <UnderlyingIndexName>factorial_result_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="13885" parent="3871" name="fk_9d4c63d19d86650f">
-      <ObjectId>24601</ObjectId>
-      <StateNumber>556</StateNumber>
-      <ColNames>user_id_id</ColNames>
-      <RefTableId>24584</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>user</RefTableName>
-      <RefKeyName>user_pkey</RefKeyName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="13886" parent="3872" name="version">
+    <column id="13885" parent="3872" name="version">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>554</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="13887" parent="3872" name="migration_versions_pkey">
+    <index id="13886" parent="3872" name="migration_versions_pkey">
       <ObjectId>24580</ObjectId>
       <StateNumber>554</StateNumber>
       <ColNames>version</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="13888" parent="3872" name="migration_versions_pkey">
+    <key id="13887" parent="3872" name="migration_versions_pkey">
       <ObjectId>24581</ObjectId>
       <StateNumber>554</StateNumber>
       <ColNames>version</ColNames>
       <UnderlyingIndexName>migration_versions_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="13889" parent="3873" name="id">
+    <column id="13888" parent="3873" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>555</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="13890" parent="3873" name="uuid">
+    <column id="13889" parent="3873" name="uuid">
       <Position>2</Position>
       <DataType>varchar(180)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>555</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="13891" parent="3873" name="roles">
+    <column id="13890" parent="3873" name="roles">
       <Position>3</Position>
       <DataType>json|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>555</StateNumber>
       <TypeId>114</TypeId>
     </column>
-    <column id="13892" parent="3873" name="password">
+    <column id="13891" parent="3873" name="password">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>555</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="13893" parent="3873" name="user_pkey">
+    <index id="13892" parent="3873" name="user_pkey">
       <ObjectId>24590</ObjectId>
       <StateNumber>555</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="13894" parent="3873" name="uniq_8d93d649d17f50a6">
+    <index id="13893" parent="3873" name="uniq_8d93d649d17f50a6">
       <ObjectId>24592</ObjectId>
       <StateNumber>555</StateNumber>
       <ColNames>uuid</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="13895" parent="3873" name="user_pkey">
+    <key id="13894" parent="3873" name="user_pkey">
       <ObjectId>24591</ObjectId>
       <StateNumber>555</StateNumber>
       <ColNames>id</ColNames>

@@ -23,7 +23,7 @@ class FactorialResult
     private $userId;
 
     /**
-     * @ORM\Column(type="bigint")
+     * @ORM\Column(type="text")
      */
     private $rezult;
 
@@ -49,12 +49,12 @@ class FactorialResult
         return $this;
     }
 
-    public function getRezult(): ?int
+    public function getRezult(): ?string
     {
         return $this->rezult;
     }
 
-    public function setRezult(int $rezult): self
+    public function setRezult(string $rezult): self
     {
         $this->rezult = $rezult;
 

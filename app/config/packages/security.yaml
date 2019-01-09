@@ -20,6 +20,8 @@ security:
             guard:
                 authenticators:
                     - App\Security\LoginCustomAuthenticator
+            logout:
+                path: app_logout
 
             # activate different ways to authenticate
 

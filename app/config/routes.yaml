@@ -4,3 +4,8 @@ index:
 show:
     path: /show
     controller: App\Controller\FactorialResultController::show
+app_logout:
+    path: /logout
+show_rezult:
+    path: /showResult
+    controller: App\Controller\DefaultController::showResult

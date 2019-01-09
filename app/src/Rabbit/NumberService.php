@@ -26,6 +26,10 @@ class NumberService implements ConsumerInterface
         $this->manager = $manager;
     }
 
+    /**
+     * @param AMQPMessage $msg
+     * @return mixed|void
+     */
     public function execute(AMQPMessage $msg)
     {
         $body = $msg->body;
@@ -40,13 +44,13 @@ class NumberService implements ConsumerInterface
         $rez = 1;
 
 
-        for ($i = 1; $i <= $number; ++$i){
-            $rez *= $i;
+        for ($i = 2; $i <= $number; ++$i){
+            $rez = bcmul($rez, $i);
 //          var_dump($i);
         }
 
 
-//      var_dump($i);
+//        var_dump($rez);
 
         $result->setRezult($rez);
 

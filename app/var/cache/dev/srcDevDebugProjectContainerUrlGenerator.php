@@ -36,6 +36,8 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         '_profiler_exception_css' => array(array('token'), array('_controller' => 'web_profiler.controller.exception::cssAction'), array(), array(array('text', '/exception.css'), array('variable', '/', '[^/]++', 'token'), array('text', '/_profiler')), array(), array()),
         'index' => array(array(), array('_controller' => 'App\\Controller\\DefaultController::index'), array(), array(array('text', '/')), array(), array()),
         'show' => array(array(), array('_controller' => 'App\\Controller\\FactorialResultController::show'), array(), array(array('text', '/show')), array(), array()),
+        'app_logout' => array(array(), array(), array(), array(array('text', '/logout')), array(), array()),
+        'show_rezult' => array(array(), array('_controller' => 'App\\Controller\\DefaultController::showResult'), array(), array(array('text', '/showResult')), array(), array()),
     );
         }
     }

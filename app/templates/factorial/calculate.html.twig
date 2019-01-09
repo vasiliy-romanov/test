@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Calculate Factorial{% endblock %}
+
+{% block body %}
+    <form class="align-items-baseline" method="get">
+        <h1 class="h3 mb-3 font-weight-normal">Enter number</h1>
+        <input type="number" name="number" >
+        <button class="btn btn-primary">
+            Calculate
+        </button>
+    </form>
+
+    <br>
+
+    <form action="/logout" class="align-items-baseline" method="get">
+        <button class="btn btn-primary">
+            Loguot
+        </button>
+    </form>
+
+    <br>
+
+    <form action="/showResult" class="align-items-baseline" method="get">
+        <button class="btn btn-primary">
+            Show Result
+        </button>
+    </form>
+
+{% endblock %}

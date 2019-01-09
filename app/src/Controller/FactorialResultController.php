@@ -49,9 +49,6 @@ class FactorialResultController extends AbstractController
             $producer->publish($rabbitMassage);
         }
 
-        $repository = $this->getDoctrine()->getRepository(FactorialResult::class);
-        $FRs = $repository->findBy(['userId' => $user]);
-
-        return $this->render('factorial/result.html.twig', ['result' => $FRs]);
+        return $this->render('factorial/calculate.html.twig');
     }
 }
