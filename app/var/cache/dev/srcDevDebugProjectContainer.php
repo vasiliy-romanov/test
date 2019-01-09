@@ -16,6 +16,6 @@ if (!\class_exists(srcDevDebugProjectContainer::class, false)) {
 
 return new \ContainerXGM5v5x\srcDevDebugProjectContainer(array(
     'container.build_hash' => 'XGM5v5x',
-    'container.build_id' => '5bfc20b9',
-    'container.build_time' => 1547022547,
+    'container.build_id' => '350a4ab5',
+    'container.build_time' => 1547028806,
 ), __DIR__.\DIRECTORY_SEPARATOR.'ContainerXGM5v5x');

@@ -19,21 +19,22 @@ class FactorialResultController extends AbstractController
 {
     public function show(UserInterface $user, Request $request, Producer $producer)
     {
-        $number = $request->query->get('number');
+        $number = (int) $request->query->get('number');
 
-        $manager = $this->getDoctrine()->getManager();
+        if (is_int($number) && $number <> 0) {
+            $manager = $this->getDoctrine()->getManager();
 
-        $rezult = new FactorialResult();
-        $rezult->setUserId($user);
-        $rezult->setNumberFactorial($number);
-        $rezult->setRezult(1);
+            $rezult = new FactorialResult();
+            $rezult->setUserId($user);
+            $rezult->setNumberFactorial($number);
+            $rezult->setRezult(1);
 
 //        var_dump($rezult);
 
-        $manager->persist($rezult);
-        $manager->flush();
+            $manager->persist($rezult);
+            $manager->flush();
 
-        if (!is_null($number)) {
+
             $massage = [
                 'id' => $rezult->getId(),
                 'number' => $number

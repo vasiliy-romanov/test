@@ -36,15 +36,19 @@ class NumberService implements ConsumerInterface
 
         $number = $response['number'];
 
+//        var_dump($number);
+        $rez = 1;
+
+
         for ($i = 1; $i <= $number; ++$i){
-            $i *= $i;
+            $rez *= $i;
 //          var_dump($i);
         }
 
 
 //      var_dump($i);
 
-        $result->setRezult($i);
+        $result->setRezult($rez);
 
 //      var_dump($result);
 
