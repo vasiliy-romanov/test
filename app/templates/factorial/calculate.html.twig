@@ -5,7 +5,7 @@
 {% block body %}
     <form class="align-items-baseline" method="get">
         <h1 class="h3 mb-3 font-weight-normal">Enter number</h1>
-        <input type="number" name="number" >
+        <input type="number" name="number" min="1" max="1000">
         <button class="btn btn-primary">
             Calculate
         </button>
@@ -15,7 +15,7 @@
 
     <form action="/logout" class="align-items-baseline" method="get">
         <button class="btn btn-primary">
-            Loguot
+            Logout
         </button>
     </form>
 
@@ -26,5 +26,15 @@
             Show Result
         </button>
     </form>
+
+    <br>
+
+    {% if 'ROLE_ADMIN' in app.user.roles %}
+        <form action="/admin" class="align-items-baseline" method="get">
+            <button class="btn btn-primary">
+                Admin Panel
+            </button>
+        </form>
+    {% endif %}
 
 {% endblock %}
