@@ -1,19 +1,20 @@
 
 ###> symfony/framework-bundle ###
-/app/.env
-/app/public/bundles/
-/app/var
-/app/vendor
-/app/receive.php
-/app/send.php
+.env
+public/bundles/
+var
+!var/.gitkeep
+vendor
+receive.php
+send.php
 /data
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
-/app/.phpunit
-/app/phpunit.xml
+.phpunit
+phpunit.xml
 ###< symfony/phpunit-bridge ###
 
 ###> symfony/web-server-bundle ###
-/app/.web-server-pid
+.web-server-pid
 ###< symfony/web-server-bundle ###

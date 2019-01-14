@@ -1,5 +1,5 @@
 parameters:
-    rabbitmq_host: '172.19.0.1'
+    rabbitmq_host: '172.20.0.1'
     rabbitmq_user: 'user'
     rabbitmq_password: 'password'
     rabbitmq_statuslayer_vhost: 'my_vhost'
