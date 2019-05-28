@@ -29,8 +29,6 @@ class FactorialResultController extends AbstractController
             $rezult->setNumberFactorial($number);
             $rezult->setRezult(1);
 
-//        var_dump($rezult);
-
             $manager->persist($rezult);
             $manager->flush();
 
@@ -39,8 +37,6 @@ class FactorialResultController extends AbstractController
                 'id' => $rezult->getId(),
                 'number' => $number
             ];
-
-//            var_dump($massage);
 
             $rabbitMassage = json_encode($massage);
 
