@@ -40,8 +40,6 @@ class FactorialResultController extends AbstractController
 
             $rabbitMassage = json_encode($massage);
 
-//            $this->get('old_sound_rabbit_mq.number_producer')->setContextType('application/json');
-//            $this->get('old_sound_rabbit_mq.number_producer')->publish($rabbitMassage);
             $producer->publish($rabbitMassage);
         }
 
