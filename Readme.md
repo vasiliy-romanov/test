@@ -3,7 +3,7 @@
 Symfony
 Docker
 RabbitMq
-MySQL
+PostGreSQL
 
 Установка:
 
